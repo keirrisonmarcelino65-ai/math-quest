@@ -149,10 +149,9 @@ Como o grupo tem 2 integrantes, o Gustavo acumula os papéis de Game Designer & 
 - **Rastros no Canvas:** o quadro anterior é sempre apagado e o cenário desenhado de novo a cada passo do loop.
 - **Fases impossíveis:** para garantir que dá para vencer, um robô joga as três fases do início ao fim nos testes automáticos (`node tests/test.js`).
 
-## 12. Aprendizados com Git e Canvas _(preencher antes da retrospectiva)_
-
-- Maior desafio com o Canvas/JavaScript: ...
-- O que aprendemos usando o Git: ...
+## 12. Aprendizados com Git e Canvas 
+bom nos aprendemos praticamente do zero, como fazer um jogo de maneira um pouco mais simples, nos se inspiramos em outros jogos ja criados, e adicionamos a mecanica de fazer contas, e a cada fase aumenta mais ou niveis de contas. Nos nos desenvolvemos na parte de trabalhar em grupo
+e tivemos que nos organizar bastante para a produção tanto do jogo tanto dessa documentação, e em relação jogar o jogo e ver ele finalmente sem bugs é uma sensação de alívio assim como de fazer a documentação.
 
 ## 13. Checklist dos critérios de avaliação
 
