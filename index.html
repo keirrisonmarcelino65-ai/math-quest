@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Math Quest</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="stage">
+    <canvas id="game" width="960" height="544"></canvas>
+
+    <!-- Menu principal -->
+    <section id="menu" class="screen active">
+      <h1 class="logo">MATH<span>QUEST</span></h1>
+      <p class="tagline">Corra, pule e vença desafios de matemática!</p>
+      <div class="buttons">
+        <button id="btn-play" class="btn primary">Jogar</button>
+        <button id="btn-levels" class="btn">Escolher fase</button>
+        <button id="btn-help" class="btn">Como jogar</button>
+        <button id="btn-sound" class="btn small">Som: ligado</button>
+      </div>
+      <p class="total">Pontuação total: <b id="menu-total">0</b></p>
+    </section>
+
+    <!-- Seleção de fases -->
+    <section id="levels" class="screen">
+      <h2>Escolha a fase</h2>
+      <div id="level-cards" class="cards"></div>
+      <button id="levels-back" class="btn small">Voltar</button>
+    </section>
+
+    <!-- Como jogar -->
+    <section id="help" class="screen">
+      <h2>Como jogar</h2>
+      <div class="panel help-panel">
+        <div class="help-grid">
+          <div>
+            <h3>Controles</h3>
+            <p><kbd>←</kbd> <kbd>→</kbd> ou <kbd>A</kbd> <kbd>D</kbd> andar</p>
+            <p><kbd>Espaço</kbd> ou <kbd>↑</kbd> pular (segure para pular mais alto)</p>
+            <p><kbd>Esc</kbd> ou <kbd>P</kbd> pausar</p>
+            <p><kbd>M</kbd> liga/desliga o som</p>
+          </div>
+          <div>
+            <h3>Regras</h3>
+            <p>Você tem 3 vidas em cada fase.</p>
+            <p>Portões trancados pedem uma resposta certa.</p>
+            <p>Depois de 3 erros, aparece uma dica.</p>
+            <p>Moedas valem 10 pontos. Pule nos inimigos para derrotá-los!</p>
+            <p>Espinhos, inimigos e buracos tiram uma vida.</p>
+            <p>Os checkpoints (bandeiras) guardam seu lugar.</p>
+          </div>
+        </div>
+      </div>
+      <button id="help-back" class="btn small">Voltar</button>
+    </section>
+
+    <!-- Janela de desafio matemático -->
+    <section id="question" class="screen modal">
+      <div class="panel q-panel">
+        <div class="q-head">
+          <span id="q-title">Portão 1</span>
+          <span id="q-attempts"></span>
+        </div>
+        <p id="q-text" class="q-text"></p>
+        <div id="q-options" class="q-options"></div>
+        <form id="q-form" class="q-form" autocomplete="off">
+          <input id="q-input" type="text" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Sua resposta">
+          <button type="submit" class="btn primary">Responder</button>
+        </form>
+        <p id="q-feedback" class="q-feedback"></p>
+        <p id="q-hint" class="q-hint"></p>
+        <button id="q-close" class="btn small">Voltar ao jogo (Esc)</button>
+      </div>
+    </section>
+
+    <!-- Menu de pausa -->
+    <section id="pause" class="screen modal">
+      <div class="panel narrow">
+        <h2>Pausado</h2>
+        <div class="buttons">
+          <button id="pause-resume" class="btn primary">Continuar</button>
+          <button id="pause-restart" class="btn">Reiniciar fase</button>
+          <button id="pause-sound" class="btn small">Som: ligado</button>
+          <button id="pause-menu" class="btn small">Menu principal</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fase concluída / vitória -->
+    <section id="win" class="screen modal">
+      <div class="panel narrow">
+        <h2 id="win-title">Fase concluída!</h2>
+        <p id="win-sub" class="sub"></p>
+        <table class="stats" id="win-stats"></table>
+        <div class="buttons">
+          <button id="win-next" class="btn primary">Próxima fase</button>
+          <button id="win-again" class="btn">Jogar de novo</button>
+          <button id="win-menu" class="btn small">Menu principal</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Derrota -->
+    <section id="lose" class="screen modal">
+      <div class="panel narrow">
+        <h2 class="bad">Fim de jogo</h2>
+        <p class="sub">Suas vidas acabaram. Reinicie a fase e tente de novo!</p>
+        <table class="stats" id="lose-stats"></table>
+        <div class="buttons">
+          <button id="lose-restart" class="btn primary">Reiniciar fase</button>
+          <button id="lose-menu" class="btn small">Menu principal</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/score.js"></script>
+  <script src="js/math.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/collision.js"></script>
+  <script src="js/physics.js"></script>
+  <script src="js/player.js"></script>
+  <script src="js/levels.js"></script>
+  <script src="js/game.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/input.js"></script>
+  <script src="js/sprites.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
